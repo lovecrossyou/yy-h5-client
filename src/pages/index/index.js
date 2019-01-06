@@ -5,23 +5,31 @@
  * @Last Modified time: 2018-11-07 23:33:55
  */
 
-import React, { PureComponent } from 'react';
-import styles from './index.less';
+import React, { PureComponent } from "react";
+import { List, InputItem, Carousel, Button, WhiteSpace, Icon } from "antd-mobile";
+
+import styles from "./index.less";
+import { Banner, SearchBar, Category, LimitBuy } from "./components/index";
+import { NearByShops } from "./components";
+
 
 class Index extends PureComponent {
+
+  state = {
+    data: ['AiyWuByWklrrUDlFignR', 'TekJlZRVCjLFexlOCuWn', 'IJOtIlfsYdTyaDTRVrLI'],
+    imgHeight: 352
+  };
+
   render() {
-    const { route } = this.props;
-    const testList = Array.from({ length: 10 }, (v, i) => i);
     return (
-      <div className={styles.index}>
-        <div className={styles.test}>
-          <h2>{route.title}</h2>
-          {testList.map(i => (
-            <div className={styles.square} key={i}>
-              {i}
-            </div>
-          ))}
-        </div>
+      <div>
+        <SearchBar/>
+        <Banner
+          imgHeight={this.state.imgHeight}
+          data={this.state.data}/>
+        <Category/>
+        <LimitBuy/>
+        <NearByShops/>
       </div>
     );
   }
