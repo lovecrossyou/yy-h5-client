@@ -1,5 +1,5 @@
 {
-  "name": "umi_mall_publish",
+  "name": "umi_mall",
   "version": "1.0.0",
   "main": "server.js",
   "scripts": {
