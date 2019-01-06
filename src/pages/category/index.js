@@ -8,13 +8,10 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'dva';
 import ScrollWrap from '@/components/ScrollWrap';
-// import Lazyimg from 'react-lazyimg-component';
-// import { ActivityIndicator } from 'antd-mobile';
 import styles from './index.less';
 
 @connect(({ category, loading }) => ({
   category,
-  // loading,
   firsstListLoading: loading.effects['category/GetCategorysList'],
 }))
 class Category extends PureComponent {
@@ -47,11 +44,10 @@ class Category extends PureComponent {
   render() {
     const { category } = this.props;
     const { firstList, activeTab, SubcategoriesList } = category;
-    // console.log(this.wrapNode);
     return (
       <div className={styles.category}>
-        <div className={styles.searchbar} />
-        <div style={{ height: `${this.clientHeight - 188}px`, position: 'relative' }}>
+        {/*<div className={styles.searchbar} />*/}
+        <div style={{ height: `${this.clientHeight - 100}px`, position: 'relative' }}>
           <ScrollWrap wrapId="rootList" wrapClass={styles.category_tab}>
             {firstList.map(item => (
               <div
@@ -65,7 +61,6 @@ class Category extends PureComponent {
               </div>
             ))}
           </ScrollWrap>
-
           <ScrollWrap wrapId="rootContent" wrapClass={styles.category_content} getRef={this.getRef}>
             {SubcategoriesList.map(item => (
               <dl key={item.categoryId}>

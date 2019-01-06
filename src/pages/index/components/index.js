@@ -140,5 +140,7 @@ export const NearByShops = ({title='附近的店铺'}) => {
     <ShopItem/>
     <ShopItem/>
     <ShopItem/>
+    <ShopItem/>
+    <ShopItem/>
   </div>;
 };

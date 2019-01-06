@@ -11,25 +11,39 @@ import { List, InputItem, Carousel, Button, WhiteSpace, Icon } from "antd-mobile
 import styles from "./index.less";
 import { Banner, SearchBar, Category, LimitBuy } from "./components/index";
 import { NearByShops } from "./components";
+import ScrollWrap from "@/components/ScrollWrap";
 
 
 class Index extends PureComponent {
 
+  constructor(props) {
+    super(props);
+    this.clientHeight = window.document.body.clientHeight;
+  }
+
+  getRef = e => {
+    this.container = React.cloneElement(e);
+  };
+
   state = {
-    data: ['AiyWuByWklrrUDlFignR', 'TekJlZRVCjLFexlOCuWn', 'IJOtIlfsYdTyaDTRVrLI'],
+    data: ["AiyWuByWklrrUDlFignR", "TekJlZRVCjLFexlOCuWn", "IJOtIlfsYdTyaDTRVrLI"],
     imgHeight: 352
   };
 
   render() {
     return (
       <div>
-        <SearchBar/>
-        <Banner
-          imgHeight={this.state.imgHeight}
-          data={this.state.data}/>
-        <Category/>
-        <LimitBuy/>
-        <NearByShops/>
+        <div style={{ height: `${this.clientHeight - 100}px`, position: 'relative' }}>
+          <ScrollWrap wrapId="rootList" wrapClass={styles.wrap_body}>
+            <SearchBar/>
+            {/*<Banner*/}
+              {/*imgHeight={this.state.imgHeight}*/}
+              {/*data={this.state.data}/>*/}
+            <Category/>
+            <LimitBuy/>
+            <NearByShops/>
+          </ScrollWrap>
+        </div>
       </div>
     );
   }
