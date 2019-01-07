@@ -47,7 +47,7 @@ class Category extends PureComponent {
     const { firstList, activeTab, SubcategoriesList } = category;
     return (
       <div className={styles.category}>
-        <Navigator title='分类'/>
+        <Navigator title='分类' props={this.props}/>
         <div style={{ height: `${this.clientHeight - 180-150}px`, position: "relative" }}>
           <ScrollWrap wrapId="rootList" wrapClass={styles.category_tab}>
             {firstList.map(item => (

@@ -3,9 +3,7 @@ import { List, InputItem, Carousel, Button, WhiteSpace, Icon } from "antd-mobile
 
 
 import styles from "./index.css";
-import BizIcon from '../../../components/BizIcon';
 import star_icon  from './images/star.png'
-
 
 
 import shop_icon from './images/shop_icon.png'
@@ -71,6 +69,7 @@ export const Category = () => {
 
 // 轮播图
 export const Banner = ({ data, imgHeight, slideIndex }) => {
+  return null;
   return (
     <div>
       <Carousel

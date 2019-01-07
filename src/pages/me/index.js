@@ -86,7 +86,7 @@ class Index extends PureComponent {
   render() {
     return (
       <div className={styles.container}>
-        <Navigator title='我'/>
+        <Navigator title='我' props={this.props}/>
         <Header/>
         <ActionItems/>
       </div>

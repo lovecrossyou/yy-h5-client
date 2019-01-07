@@ -18,7 +18,7 @@ import '@/layouts/nprogress.less';
 NProgress.configure({ showSpinner: false });
 
 // 底部有bar菜单
-const BarRoutes = ['/shoppingcart', '/', '/me', '/category'];
+export const BarRoutes = ['/shoppingcart', '/', '/me', '/category'];
 let currHref = '';
 
 
