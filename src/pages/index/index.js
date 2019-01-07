@@ -35,7 +35,7 @@ class Index extends PureComponent {
   render() {
     return (
       <div>
-        <div style={{ height: `${this.clientHeight - 190}px`, position: 'relative' }}>
+        <div style={{ height: `${this.clientHeight - 160 - 50}px`, position: 'relative' }}>
           <Navigator title='快马优品' props={this.props}/>
           <ScrollWrap wrapId="rootList" wrapClass={styles.wrap_body}>
             <SearchBar/>
