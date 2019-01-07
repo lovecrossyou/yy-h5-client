@@ -143,8 +143,8 @@ export const ShopStar = ()=>{
   </div>
 }
 
-export const ShopItem = ()=>{
-  return <div className={styles.shop_item}>
+export const ShopItem = ({click})=>{
+  return <div className={styles.shop_item} onClick={click}>
     <div className={styles.shop_item_left}>
       <img
         className={styles.shop_item_icon}
@@ -167,10 +167,10 @@ export const ShopItem = ()=>{
 }
 
 // 附近店铺列表
-export const NearByShops = ({title='附近的店铺'}) => {
+export const NearByShops = ({title='附近的店铺',onClick}) => {
   return <div className={styles.near_wrapper}>
     <div className={styles.main_title}>{title}</div>
-    <ShopItem/>
+    <ShopItem click={onClick}/>
     <ShopItem/>
     <ShopItem/>
     <ShopItem/>

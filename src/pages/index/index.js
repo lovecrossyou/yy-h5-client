@@ -13,6 +13,7 @@ import { Banner, SearchBar, Category, LimitBuy } from "./components/index";
 import { NearByShops } from "./components";
 import ScrollWrap from "@/components/ScrollWrap";
 import { Navigator } from "../../components/Nav";
+import router from 'umi/router';
 
 
 class Index extends PureComponent {
@@ -45,7 +46,11 @@ class Index extends PureComponent {
             </div>
             <Category/>
             <LimitBuy/>
-            <NearByShops/>
+            <NearByShops
+              onClick={()=>{
+                router.push('/watershop')
+              }}
+            />
           </ScrollWrap>
         </div>
       </div>

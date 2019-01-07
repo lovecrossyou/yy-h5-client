@@ -7,6 +7,7 @@ export default [
       { path: '/category', component: './category/index', title: '分类' },
       { path: '/me', component: './me/index', title: '我' },
       { path: '/shoppingcart', component: './shoppingcart/index', title: '购物车' },
+      { path: '/watershop', component: './watershop/index', title: '水站' },
       { path: '/test', component: './test/index', title: '测试页面' },
       {
         path: '/exception',
