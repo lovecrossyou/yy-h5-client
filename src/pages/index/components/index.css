@@ -7,6 +7,18 @@
     width: 25%;
 }
 
+
+.addr_wrapper{
+    display: flex;
+    flex-direction: row;
+    height: 48px;
+    align-items: center;
+    background-color: #fff;
+    padding: 20px ;
+    margin-top: 20px;
+    box-sizing: border-box;
+
+}
 .cate_wrapper{
     display: flex;
     flex-direction: row;
@@ -182,6 +194,10 @@
     padding-left: 30px;
 }
 
+.addr_icon{
+    width: 24px;
+    height: 34px;
+}
 
 .near_wrapper{
     padding: 20px;

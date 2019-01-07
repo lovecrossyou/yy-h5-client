@@ -13,6 +13,8 @@ import bucket_icon from './images/bucket.png'
 import health_icon from './images/health.png'
 import shuiguo_icon from './images/shuiguo.png'
 
+
+import addr_icon from './images/地址@2x.png'
 /**
  * Created by zhulizhe on 2019-01-06.
  */
@@ -20,7 +22,10 @@ import shuiguo_icon from './images/shuiguo.png'
 // 搜索框
 export const SearchBar = () => {
   return <div>
-    <div className={styles.search_addr}>百万庄大街11号</div>
+    <div className={styles.addr_wrapper}>
+      <img src={addr_icon} alt="" className={styles.addr_icon}/>
+      <div className={styles.search_addr}>百万庄大街11号</div>
+    </div>
     <div className={styles.search}>
       <div className={styles.search_wrapper}>
         <Icon type='search' color='#fff'/>
