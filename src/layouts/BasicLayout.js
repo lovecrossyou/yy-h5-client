@@ -38,27 +38,12 @@ class BasicLayout extends PureComponent {
 
     if (BarRoutes.indexOf(location.pathname) < 0) {
       return <div>
-        <NavBar
-          mode="dark"
-          style={{ backgroundColor: "#4A90E2",height:'45px',position:"fixed",zIndex:"11",width:"100%",top:"0" }}
-          icon={
-            (props.pathname === "/") ?null: (
-              <Icon type="left" size={'lg'}/>
-            )
-          }
-          onLeftClick={() => {
-            //这里需要做指定式跳转，手机页面会涉及到用户刷新的问题
-            router.go(-1);
-          }}
-        >
-          我的
-        </NavBar>
         {children}
       </div>;
     }
 
     return (
-      <div style={{ overflowX: 'hidden' }}>
+      <div style={{ overflowX: 'hidden',marginTop:'88px' }}>
         <MenuBar pathname={location.pathname}>{children}</MenuBar>
       </div>
     );
