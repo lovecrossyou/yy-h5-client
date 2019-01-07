@@ -36,8 +36,8 @@ class Index extends PureComponent {
     return (
       <div>
         <div style={{ height: `${this.clientHeight - 190}px`, position: 'relative' }}>
+          <Navigator title='快马优品' props={this.props}/>
           <ScrollWrap wrapId="rootList" wrapClass={styles.wrap_body}>
-            <Navigator title='快马优品' props={this.props}/>
             <SearchBar/>
             <div style={{marginTop:'28px'}}>
               <Banner
