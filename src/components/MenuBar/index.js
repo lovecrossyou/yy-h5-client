@@ -29,7 +29,7 @@ const tabBarData = [
     title: '购物车',
     icon: 'cart_icon',
     selectedIcon: 'cart_icon',
-    link: '/shop',
+    link: '/shoppingcart',
   },
   {
     title: '我的',

@@ -55,6 +55,7 @@ const actions = [{
   }]
 
 import styles from "./index.css";
+import { Navigator } from "../../components/Nav";
 
 
 const ActionItem = ({data})=>{
@@ -85,6 +86,7 @@ class Index extends PureComponent {
   render() {
     return (
       <div className={styles.container}>
+        <Navigator title='我'/>
         <Header/>
         <ActionItems/>
       </div>

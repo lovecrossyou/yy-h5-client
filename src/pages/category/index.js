@@ -1,18 +1,19 @@
 /*
- * @Author: Jan-superman 
- * @Date: 2018-09-27 20:39:02 
+ * @Author: Jan-superman
+ * @Date: 2018-09-27 20:39:02
  * @Last Modified by: superman
  * @Last Modified time: 2018-12-25 01:03:00
  */
 
-import React, { PureComponent } from 'react';
-import { connect } from 'dva';
-import ScrollWrap from '@/components/ScrollWrap';
-import styles from './index.less';
+import React, { PureComponent } from "react";
+import { connect } from "dva";
+import ScrollWrap from "@/components/ScrollWrap";
+import styles from "./index.less";
+import { Navigator } from "../../components/Nav";
 
 @connect(({ category, loading }) => ({
   category,
-  firsstListLoading: loading.effects['category/GetCategorysList'],
+  firsstListLoading: loading.effects["category/GetCategorysList"]
 }))
 class Category extends PureComponent {
   constructor(props) {
@@ -23,7 +24,7 @@ class Category extends PureComponent {
   componentDidMount() {
     const { dispatch } = this.props;
     dispatch({
-      type: 'category/GetCategorysList',
+      type: "category/GetCategorysList"
     });
   }
 
@@ -34,10 +35,10 @@ class Category extends PureComponent {
   handleSetActiveTab = id => {
     const { dispatch } = this.props;
     dispatch({
-      type: 'category/GetSubcategories',
+      type: "category/GetSubcategories",
       payload: {
-        categoryId: id,
-      },
+        categoryId: id
+      }
     });
   };
 
@@ -46,8 +47,8 @@ class Category extends PureComponent {
     const { firstList, activeTab, SubcategoriesList } = category;
     return (
       <div className={styles.category}>
-        {/*<div className={styles.searchbar} />*/}
-        <div style={{ height: `${this.clientHeight - 100}px`, position: 'relative' }}>
+        <Navigator title='分类'/>
+        <div style={{ height: `${this.clientHeight - 180-150}px`, position: "relative" }}>
           <ScrollWrap wrapId="rootList" wrapClass={styles.category_tab}>
             {firstList.map(item => (
               <div
@@ -55,7 +56,7 @@ class Category extends PureComponent {
                   this.handleSetActiveTab(item.categoryId);
                 }}
                 key={item.categoryId}
-                className={`${styles.list_item} ${item.categoryId === activeTab ? styles.cur : ''}`}
+                className={`${styles.list_item} ${item.categoryId === activeTab ? styles.cur : ""}`}
               >
                 {item.categoryName}
               </div>

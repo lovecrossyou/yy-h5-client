@@ -12,6 +12,7 @@ import styles from "./index.less";
 import { Banner, SearchBar, Category, LimitBuy } from "./components/index";
 import { NearByShops } from "./components";
 import ScrollWrap from "@/components/ScrollWrap";
+import { Navigator } from "../../components/Nav";
 
 
 class Index extends PureComponent {
@@ -35,6 +36,7 @@ class Index extends PureComponent {
       <div>
         <div style={{ height: `${this.clientHeight - 190}px`, position: 'relative' }}>
           <ScrollWrap wrapId="rootList" wrapClass={styles.wrap_body}>
+            <Navigator title='首页'/>
             <SearchBar/>
             <div style={{marginTop:'28px'}}>
               <Banner

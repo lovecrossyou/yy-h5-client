@@ -18,7 +18,7 @@ import '@/layouts/nprogress.less';
 NProgress.configure({ showSpinner: false });
 
 // 底部有bar菜单
-const BarRoutes = ['/shop', '/', '/me', '/category'];
+const BarRoutes = ['/shoppingcart', '/', '/me', '/category'];
 let currHref = '';
 
 
@@ -40,7 +40,6 @@ class BasicLayout extends PureComponent {
       return <div>
         <NavBar
           mode="dark"
-          className={styles.nav}
           style={{ backgroundColor: "#4A90E2",height:'45px',position:"fixed",zIndex:"11",width:"100%",top:"0" }}
           icon={
             (props.pathname === "/") ?null: (
@@ -60,19 +59,6 @@ class BasicLayout extends PureComponent {
 
     return (
       <div style={{ overflowX: 'hidden' }}>
-        {/*<NavBar*/}
-          {/*mode="dark"*/}
-          {/*style={{ backgroundColor: "#4A90E2",height:'90px',position:"fixed",zIndex:"11",width:"100%",top:"0" }}*/}
-          {/*icon={*/}
-            {/*<Icon type="left" size={'lg'}/>*/}
-          {/*}*/}
-          {/*onLeftClick={() => {*/}
-            {/*//这里需要做指定式跳转，手机页面会涉及到用户刷新的问题*/}
-            {/*router.go(-1);*/}
-          {/*}}*/}
-        {/*>*/}
-          {/*我的*/}
-        {/*</NavBar>*/}
         <MenuBar pathname={location.pathname}>{children}</MenuBar>
       </div>
     );
