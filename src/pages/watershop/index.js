@@ -25,6 +25,12 @@ const ShopHeader = ()=>{
   </div>
 }
 
+const  ShopFooter = ()=>{
+  return <div className={styles.shop_footer}>
+
+  </div>
+}
+
 
 @connect(({ category, loading }) => ({
   category,
@@ -64,7 +70,7 @@ class Category extends PureComponent {
       <div className={styles.category}>
         <Navigator title='水站' props={this.props}/>
         <ShopHeader/>
-        <div style={{ height: `${this.clientHeight - 160}px`, position: "relative" }}>
+        <div style={{ height: `${this.clientHeight - 160 - 150}px`, position: "relative" }}>
           <ScrollWrap wrapId="rootList" wrapClass={styles.category_tab}>
             {firstList.map(item => (
               <div
@@ -82,6 +88,7 @@ class Category extends PureComponent {
             {SubcategoriesList.map(item => <ProductItem key={item.categoryId}/>)}
           </ScrollWrap>
         </div>
+        <ShopFooter/>
       </div>
     );
   }
