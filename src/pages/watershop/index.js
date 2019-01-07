@@ -11,6 +11,21 @@ import ScrollWrap from "@/components/ScrollWrap";
 import styles from "./index.less";
 import { Navigator } from "../../components/Nav";
 
+
+const ProductItem = ()=>{
+  return <div className={styles.product_item}>
+    xxx
+  </div>
+}
+
+
+const ShopHeader = ()=>{
+  return <div className={styles.shop_header}>
+
+  </div>
+}
+
+
 @connect(({ category, loading }) => ({
   category,
   firsstListLoading: loading.effects["category/GetCategorysList"]
@@ -48,6 +63,7 @@ class Category extends PureComponent {
     return (
       <div className={styles.category}>
         <Navigator title='水站' props={this.props}/>
+        <ShopHeader/>
         <div style={{ height: `${this.clientHeight - 160}px`, position: "relative" }}>
           <ScrollWrap wrapId="rootList" wrapClass={styles.category_tab}>
             {firstList.map(item => (
@@ -63,25 +79,7 @@ class Category extends PureComponent {
             ))}
           </ScrollWrap>
           <ScrollWrap wrapId="rootContent" wrapClass={styles.category_content} getRef={this.getRef}>
-            {SubcategoriesList.map(item => (
-              <dl key={item.categoryId}>
-                <dt>{item.categoryName}</dt>
-                <dd className="clearfix">
-                  {item.subSet.map(child => (
-                    <div className={styles.categoriesItem} key={child.categoryId}>
-                      <div className={styles.img_wrap}>
-                        <img
-                          src={child.categoryIcon}
-                          alt={child.categoryName}
-                          // container={this.container}
-                        />
-                      </div>
-                      <p className={styles.describe}>{child.categoryName}</p>
-                    </div>
-                  ))}
-                </dd>
-              </dl>
-            ))}
+            {SubcategoriesList.map(item => <ProductItem key={item.categoryId}/>)}
           </ScrollWrap>
         </div>
       </div>
