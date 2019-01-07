@@ -1,6 +1,6 @@
 /*
- * @Author: Jan-superman 
- * @Date: 2018-09-27 20:38:37 
+ * @Author: Jan-superman
+ * @Date: 2018-09-27 20:38:37
  * @Last Modified by: Jan-superman
  * @Last Modified time: 2018-11-07 23:33:55
  */
@@ -33,12 +33,14 @@ class Index extends PureComponent {
   render() {
     return (
       <div>
-        <div style={{ height: `${this.clientHeight - 100}px`, position: 'relative' }}>
+        <div style={{ height: `${this.clientHeight - 190}px`, position: 'relative' }}>
           <ScrollWrap wrapId="rootList" wrapClass={styles.wrap_body}>
             <SearchBar/>
-            {/*<Banner*/}
-              {/*imgHeight={this.state.imgHeight}*/}
-              {/*data={this.state.data}/>*/}
+            <div style={{marginTop:'28px'}}>
+              <Banner
+                imgHeight={this.state.imgHeight}
+                data={this.state.data}/>
+            </div>
             <Category/>
             <LimitBuy/>
             <NearByShops/>

@@ -3,8 +3,15 @@ import { List, InputItem, Carousel, Button, WhiteSpace, Icon } from "antd-mobile
 
 
 import styles from "./index.css";
-import BizIcon from "../../../components/BizIcon";
-import star_icon  from './star.png'
+import BizIcon from '../../../components/BizIcon';
+import star_icon  from './images/star.png'
+
+
+
+import shop_icon from './images/shop_icon.png'
+import bucket_icon from './images/bucket.png'
+import health_icon from './images/health.png'
+import shuiguo_icon from './images/shuiguo.png'
 
 /**
  * Created by zhulizhe on 2019-01-06.
@@ -13,25 +20,47 @@ import star_icon  from './star.png'
 // 搜索框
 export const SearchBar = () => {
   return <div>
-    <Button icon={<Icon type='search'/>}>搜索</Button><WhiteSpace/>
+    <div className={styles.search_addr}>百万庄大街11号</div>
+    <div className={styles.search}>
+      <div className={styles.search_wrapper}>
+        <Icon type='search' color='#fff'/>
+        <div className={styles.search_text}>搜索</div>
+      </div>
+    </div>
   </div>;
 };
 
 
-const CategoryItem = () => {
+const CategoryItem = ({data}) => {
+
   return <div className={styles.cate_item}>
-    <BizIcon type='wode'/>
-    <div className={styles.cate_item_text}>便利超市</div>
+    <img className={styles.cate_icon} src={data.icon} alt=""/>
+    <div className={styles.cate_item_text}>{data.title}</div>
   </div>;
 };
 
 // 分类
+
+const categories = [{
+  title:'便利超市',
+  icon:shop_icon
+},{
+  title:'桶装水',
+  icon:bucket_icon
+},{
+  title:'生鲜果蔬',
+  icon:shuiguo_icon
+},{
+  title:'医药健康',
+  icon:health_icon
+}]
+
 export const Category = () => {
   return <div className={styles.cate_wrapper}>
-    <CategoryItem/>
-    <CategoryItem/>
-    <CategoryItem/>
-    <CategoryItem/>
+    {
+      categories.map((d,index)=>(<CategoryItem data={d} key={index+'#'}/>))
+    }
+
   </div>;
 };
 
@@ -85,13 +114,13 @@ export const LimitProduct = () => {
       className={styles.limit_product_icon}
       src="https://gss0.bdstatic.com/94o3dSag_xI4khGkpoWK1HF6hhy/baike/c0%3Dbaike80%2C5%2C5%2C80%2C26/sign=971c5defc13d70cf58f7a25f99b5ba65/562c11dfa9ec8a138b055836ff03918fa1ecc0cd.jpg"
       alt=""/>
-    <div className={styles.cate_item_text}>便利超市</div>
+    <div className={styles.limit_item_text}>便利超市</div>
   </div>;
 };
 // 限时抢购
 export const LimitBuy = ({ title = "限时抢购" }) => {
-  return <div>
-    <div>{title}</div>
+  return <div className={styles.limit_wrapper}>
+    <div className={styles.main_title}>{title}</div>
     <div className={styles.limit_product_wrapper}>
       <LimitProduct/>
       <LimitProduct/>
@@ -117,13 +146,13 @@ export const ShopItem = ()=>{
         src="https://gss0.bdstatic.com/94o3dSag_xI4khGkpoWK1HF6hhy/baike/c0%3Dbaike80%2C5%2C5%2C80%2C26/sign=971c5defc13d70cf58f7a25f99b5ba65/562c11dfa9ec8a138b055836ff03918fa1ecc0cd.jpg"
         alt=""/>
       <div className={styles.shop_item_left_info}>
-        <div>京客隆-成府路店</div>
+        <div className={styles.shop_item_pname}>京客隆-成府路店</div>
         <div className={styles.limit_product_wrapper}>
           <ShopStar/>
-          <div>月售600+</div>
+          <div className={styles.shop_yueshou}>月售600+</div>
         </div>
-        <div>起送￥20</div>
-        <div>满600减20</div>
+        <div className={styles.shop_yueshou}>起送￥20</div>
+        <div className={styles.shop_yueshou_red}>满600减20</div>
       </div>
     </div>
     <div>
@@ -134,8 +163,8 @@ export const ShopItem = ()=>{
 
 // 附近店铺列表
 export const NearByShops = ({title='附近的店铺'}) => {
-  return <div>
-    <div>{title}</div>
+  return <div className={styles.near_wrapper}>
+    <div className={styles.main_title}>{title}</div>
     <ShopItem/>
     <ShopItem/>
     <ShopItem/>

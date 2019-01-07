@@ -1,12 +1,15 @@
 /*
- * @Author: Jan-superman 
- * @Date: 2018-09-27 20:38:14 
+ * @Author: Jan-superman
+ * @Date: 2018-09-27 20:38:14
  * @Last Modified by: superman
  * @Last Modified time: 2018-12-25 00:51:39
  */
 
 import React, { PureComponent } from 'react';
 import MenuBar from '@/components/MenuBar';
+import { NavBar,Icon } from "antd-mobile";
+import router from "umi/router";
+
 import NProgress from 'nprogress';
 import withRouter from 'umi/withRouter';
 import { connect } from 'dva';
@@ -18,9 +21,10 @@ NProgress.configure({ showSpinner: false });
 const BarRoutes = ['/shop', '/', '/me', '/category'];
 let currHref = '';
 
+
 class BasicLayout extends PureComponent {
   render() {
-    const { children, location, loading } = this.props;
+    const { children, location, loading,pathname } = this.props;
     const { href } = window.location; // 浏览器地址栏中地址
     if (currHref !== href) {
       // currHref 和 href 不一致时说明进行了页面跳转
@@ -33,11 +37,42 @@ class BasicLayout extends PureComponent {
     }
 
     if (BarRoutes.indexOf(location.pathname) < 0) {
-      return <div>{children}</div>;
+      return <div>
+        <NavBar
+          mode="dark"
+          className={styles.nav}
+          style={{ backgroundColor: "#4A90E2",height:'45px',position:"fixed",zIndex:"11",width:"100%",top:"0" }}
+          icon={
+            (props.pathname === "/") ?null: (
+              <Icon type="left" size={'lg'}/>
+            )
+          }
+          onLeftClick={() => {
+            //这里需要做指定式跳转，手机页面会涉及到用户刷新的问题
+            router.go(-1);
+          }}
+        >
+          我的
+        </NavBar>
+        {children}
+      </div>;
     }
 
     return (
       <div style={{ overflowX: 'hidden' }}>
+        {/*<NavBar*/}
+          {/*mode="dark"*/}
+          {/*style={{ backgroundColor: "#4A90E2",height:'90px',position:"fixed",zIndex:"11",width:"100%",top:"0" }}*/}
+          {/*icon={*/}
+            {/*<Icon type="left" size={'lg'}/>*/}
+          {/*}*/}
+          {/*onLeftClick={() => {*/}
+            {/*//这里需要做指定式跳转，手机页面会涉及到用户刷新的问题*/}
+            {/*router.go(-1);*/}
+          {/*}}*/}
+        {/*>*/}
+          {/*我的*/}
+        {/*</NavBar>*/}
         <MenuBar pathname={location.pathname}>{children}</MenuBar>
       </div>
     );

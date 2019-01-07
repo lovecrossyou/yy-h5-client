@@ -1,0 +1,60 @@
+.me_item{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    width: 33%;
+    height: 204px;
+}
+
+.me_action_icon{
+    width: 63px;
+    height: 63px;
+}
+
+.me_icon{
+    width: 126px;
+    height: 126px;
+    border-radius: 50%;
+    background-color: #0086b3;
+
+}
+
+.header_wrapper{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 18px;
+}
+
+.me_name{
+    height:40px;
+    font-size:28px;
+    font-family:PingFangSC-Medium;
+    font-weight:500;
+    color:rgba(39,39,39,1);
+    line-height:40px;
+    margin: 12px 0;
+}
+
+.me_coins{
+    height:34px;
+    font-size:24px;
+    font-family:PingFangSC-Regular;
+    font-weight:400;
+    color:rgba(153,153,153,1);
+    line-height:34px;
+}
+
+.container{
+    background-color: #fff;
+}
+
+
+.action_item_wrapper{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
