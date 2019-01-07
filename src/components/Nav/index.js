@@ -8,7 +8,7 @@ export const Navigator = ({title='',props})=>{
   return (
     <NavBar
       mode="dark"
-      style={{height:'160px'}}
+      style={{height:'160px',paddingTop:'20px',boxSizing:'border-box'}}
       icon={
         (BarRoutes.indexOf(props.route.path)>0) ?null: (
           <Icon type="left" size={'lg'}/>
