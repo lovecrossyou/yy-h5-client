@@ -6,7 +6,7 @@
  */
 
 import React, { PureComponent } from "react";
-import { List, InputItem, Carousel, Button, WhiteSpace, Icon } from "antd-mobile";
+import { List, InputItem, Button, WhiteSpace, Icon } from "antd-mobile";
 
 import styles from "./index.less";
 import { Banner, SearchBar, Category, LimitBuy } from "./components/index";
@@ -14,6 +14,7 @@ import { NearByShops } from "./components";
 import ScrollWrap from "@/components/ScrollWrap";
 import { Navigator } from "../../components/Nav";
 import router from 'umi/router';
+import CarouselItem from "../../components/carousel";
 
 
 class Index extends PureComponent {
@@ -40,9 +41,7 @@ class Index extends PureComponent {
           <ScrollWrap wrapId="rootList" wrapClass={styles.wrap_body}>
             <SearchBar/>
             <div style={{marginTop:'28px'}}>
-              <Banner
-                imgHeight={this.state.imgHeight}
-                data={this.state.data}/>
+              <CarouselItem claName={styles.banner_wrapper}/>
             </div>
             <Category/>
             <LimitBuy/>
