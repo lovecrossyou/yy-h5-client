@@ -70,7 +70,7 @@ class Category extends PureComponent {
       <div className={styles.category}>
         <Navigator title='水站' props={this.props}/>
         <ShopHeader/>
-        <div style={{ height: `${this.clientHeight - 160 - 150}px`, position: "relative" }}>
+        <div style={{ height: `${this.clientHeight - 160- 200 - 150 - 128}px`, position: "relative" }}>
           <ScrollWrap wrapId="rootList" wrapClass={styles.category_tab}>
             {firstList.map(item => (
               <div
