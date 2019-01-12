@@ -5,7 +5,7 @@
  * @Last Modified time: 2018-11-07 23:33:55
  */
 
-import React, { PureComponent } from "react";
+import React, {Component } from "react";
 import { connect } from "dva";
 
 import styles from "./index.less";
@@ -36,9 +36,27 @@ const shops = [
     secondCategoryImageUrl:
       "https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1417496360,1256003310&fm=15&gp=0.jpg"
   },
+  {
+    secondCategoryId: 2,
+    secondCategoryName: "京客隆-成府路店",
+    secondCategoryImageUrl:
+      "https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=2038682854,682426476&fm=15&gp=0.jpg"
+  },
+  {
+    secondCategoryId: 2,
+    secondCategoryName: "便利蜂-海淀黄庄店",
+    secondCategoryImageUrl:
+      "https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=1712615769,1544700621&fm=15&gp=0.jpg"
+  },
+  {
+    secondCategoryId: 2,
+    secondCategoryName: "全食-苏州街店",
+    secondCategoryImageUrl:
+      "https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1417496360,1256003310&fm=15&gp=0.jpg"
+  },
 ]
 
-class Index extends PureComponent {
+class Index extends Component {
 
   constructor(props) {
     super(props);
@@ -56,10 +74,12 @@ class Index extends PureComponent {
 
   render() {
     // const {shopList}= this.props.shop ;
+
+    console.log('this.clientHeight ',this.clientHeight)
     return (
-      <div>
-        <div style={{ height: `${this.clientHeight - 160 - 50}px`, position: 'relative' }}>
-          <Navigator title='快马优品' props={this.props}/>
+      <div className={styles.home_content}>
+        <Navigator title='快马优品' props={this.props}/>
+        <div style={{ height: `${this.clientHeight - 180-150}px`, position: "relative" }}>
           <ScrollWrap wrapId="homeList" wrapClass={styles.wrap_body}>
             <SearchBar/>
             <div style={{marginTop:'28px'}}>
