@@ -17,6 +17,27 @@ import router from 'umi/router';
 import CarouselItem from "../../components/carousel";
 
 
+const shops = [
+  {
+    secondCategoryId: 2,
+    secondCategoryName: "京客隆-成府路店",
+    secondCategoryImageUrl:
+      "https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=2038682854,682426476&fm=15&gp=0.jpg"
+  },
+  {
+    secondCategoryId: 2,
+    secondCategoryName: "便利蜂-海淀黄庄店",
+    secondCategoryImageUrl:
+      "https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=1712615769,1544700621&fm=15&gp=0.jpg"
+  },
+  {
+    secondCategoryId: 2,
+    secondCategoryName: "全食-苏州街店",
+    secondCategoryImageUrl:
+      "https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1417496360,1256003310&fm=15&gp=0.jpg"
+  },
+]
+
 class Index extends PureComponent {
 
   constructor(props) {
@@ -34,7 +55,7 @@ class Index extends PureComponent {
   };
 
   render() {
-    const {shopList}= this.props.shop ;
+    // const {shopList}= this.props.shop ;
     return (
       <div>
         <div style={{ height: `${this.clientHeight - 160 - 50}px`, position: 'relative' }}>
@@ -47,7 +68,7 @@ class Index extends PureComponent {
             <Category/>
             <LimitBuy/>
             <NearByShops
-              shops={shopList}
+              shops={shops}
               onClick={()=>{
                 router.push('/watershop')
               }}
