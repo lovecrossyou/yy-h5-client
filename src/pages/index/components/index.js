@@ -112,23 +112,31 @@ export const Banner = ({ data, imgHeight, slideIndex }) => {
 };
 
 
-export const LimitProduct = () => {
+export const LimitProduct = ({data}) => {
   return <div className={styles.limit_product}>
     <img
       className={styles.limit_product_icon}
-      src="https://gss0.bdstatic.com/94o3dSag_xI4khGkpoWK1HF6hhy/baike/c0%3Dbaike80%2C5%2C5%2C80%2C26/sign=971c5defc13d70cf58f7a25f99b5ba65/562c11dfa9ec8a138b055836ff03918fa1ecc0cd.jpg"
+      src={data}
       alt=""/>
     <div className={styles.limit_item_text}>便利超市</div>
   </div>;
 };
 // 限时抢购
+
+const images = [
+  'https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=4081706862,329782480&fm=26&gp=0.jpg',
+  'https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=2011939372,2030372149&fm=26&gp=0.jpg',
+  'https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=453672126,4138129143&fm=26&gp=0.jpg'
+]
+
+
 export const LimitBuy = ({ title = "限时抢购" }) => {
   return <div className={styles.limit_wrapper}>
     <div className={styles.main_title}>{title}</div>
     <div className={styles.limit_product_wrapper}>
-      <LimitProduct/>
-      <LimitProduct/>
-      <LimitProduct/>
+      {
+        images.map((url,index)=><LimitProduct key={index+'#'} data={url}/>)
+      }
     </div>
   </div>;
 };
@@ -142,15 +150,15 @@ export const ShopStar = ()=>{
   </div>
 }
 
-export const ShopItem = ({click})=>{
+export const ShopItem = ({data,click})=>{
   return <div className={styles.shop_item} onClick={click}>
     <div className={styles.shop_item_left}>
       <img
         className={styles.shop_item_icon}
-        src="https://gss0.bdstatic.com/94o3dSag_xI4khGkpoWK1HF6hhy/baike/c0%3Dbaike80%2C5%2C5%2C80%2C26/sign=971c5defc13d70cf58f7a25f99b5ba65/562c11dfa9ec8a138b055836ff03918fa1ecc0cd.jpg"
+        src={data.secondCategoryImageUrl}
         alt=""/>
       <div className={styles.shop_item_left_info}>
-        <div className={styles.shop_item_pname}>京客隆-成府路店</div>
+        <div className={styles.shop_item_pname}>{data.secondCategoryName}</div>
         <div className={styles.limit_product_wrapper}>
           <ShopStar/>
           <div className={styles.shop_yueshou}>月售600+</div>
@@ -166,14 +174,13 @@ export const ShopItem = ({click})=>{
 }
 
 // 附近店铺列表
-export const NearByShops = ({title='附近的店铺',onClick}) => {
+export const NearByShops = ({shops,title='附近的店铺',onClick}) => {
   return <div className={styles.near_wrapper}>
     <div className={styles.main_title}>{title}</div>
-    <ShopItem click={onClick}/>
-    <ShopItem/>
-    <ShopItem/>
-    <ShopItem/>
-    <ShopItem/>
-    <ShopItem/>
+    {
+      shops.map((shop,index)=>{
+        return <ShopItem data={shop} click={onClick} key={index+'#'}/>
+      })
+    }
   </div>;
 };

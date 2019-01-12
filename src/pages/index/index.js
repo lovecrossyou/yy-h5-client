@@ -6,8 +6,7 @@
  */
 
 import React, { PureComponent } from "react";
-import { List, InputItem, Carousel, Button, WhiteSpace, Icon } from "antd-mobile";
-
+import { connect } from "dva";
 import styles from "./index.less";
 import { Banner, SearchBar, Category, LimitBuy } from "./components/index";
 import { NearByShops } from "./components";
@@ -33,6 +32,7 @@ class Index extends PureComponent {
   };
 
   render() {
+    const {shopList}= this.props.shop ;
     return (
       <div>
         <div style={{ height: `${this.clientHeight - 160 - 50}px`, position: 'relative' }}>
@@ -47,6 +47,7 @@ class Index extends PureComponent {
             <Category/>
             <LimitBuy/>
             <NearByShops
+              shops={shopList}
               onClick={()=>{
                 router.push('/watershop')
               }}
@@ -58,4 +59,8 @@ class Index extends PureComponent {
   }
 }
 
-export default Index;
+export default connect(state=>{
+  return {
+    shop:state.shop
+  }
+})(Index);
