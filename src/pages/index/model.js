@@ -14,9 +14,10 @@ export default {
     setup({ dispatch, history }) {
       return history.listen(({ pathname, query, search }) => {
         if(pathname === '/')
-        dispatch({
-          type: "fetch"
-        });
+          console.log('xx');
+        // dispatch({
+        //   type: "fetch"
+        // });
       });
     }
   },
